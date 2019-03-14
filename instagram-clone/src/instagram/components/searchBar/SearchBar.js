@@ -5,7 +5,7 @@ import './searchBar.css';
 class SearchBar extends Component {
   render() {
     return (
-      <div className="App">
+      <div className="border">
       
       </div>
     );
