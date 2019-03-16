@@ -1,5 +1,53 @@
 .border {
-  border: 2px solid black;
+  display: flex;
+  flex-direction: row;
   margin: 5px 15px;
   height: 50px;
+  
+}
+
+.leftSide {
+  display: flex;
+  flex-direction: row;
+  margin-left: 25px;
+  width: 33%;
+}
+
+.rightSide {
+  display: flex;
+  flex-direction: row;
+ justify-content: flex-end;
+  margin-top: 10px;
+  margin-right: 50px;
+  
+  width: 33%;
+  
+}
+.instagramPic {
+  display: flex;
+  justify-content: flex-start;
+  margin-top: 10px;
+  margin-left: 10px;
+  padding-right: 15px;
+
+  border-right: 1px solid grey;
+}
+
+.instagramString {
+  margin-left: 15px;
+  margin-top: 5px;
+  font-size: 24px;
+}
+
+.searchBar {
+  border: 1px solid grey;
+  height: 25px;
+  margin-left: 150px;
+  margin-top: 10px;
+  padding: 0 100px
+}
+
+.clickPic {
+  padding: 2px;
+  
 }
