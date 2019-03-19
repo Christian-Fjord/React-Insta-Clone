@@ -1,36 +1,47 @@
-import React, { Component } from 'react';
+
+import React from 'react';
 
 import { Instagram } from 'react-feather';
 import { Compass } from 'react-feather';
 import { Heart } from 'react-feather';
 import { User } from 'react-feather';
 
-import './searchBar.css';
 
-
-class SearchBar extends Component {
-  render() {
+import './SearchBar.css';
+const SearchBar = props => {
     return (
-    <div className="border">
-      
-      <div className="leftSide">
-        <Instagram className="instagramPic"/>
 
-        <p className="instagramString"> <strong> Instagram </strong> </p>
+      <div className="search-bar-wrapper">
 
+       
+
+    
+        <div className="social">
+        <Instagram className="instagram" />
+        
+        
+        </div>
+        <div>
+
+          
+
+        <input type="text" placeholder="Search" onKeyDown={props.searchPosts} />
+        </div>
+        <div className="social-wrapper">
+          <div className="social">
+            <Compass />
+          </div>
+          <div className="social">
+            <Heart />
+          </div>
+          <div className="social">
+            <User />
+          </div>
+        </div>
+        
       </div>
-
-      <p className="searchBar"> search </p>
-
-
-      <div className="rightSide">
-        <Compass className="clickPic" />
-        <Heart className="clickPic" />
-        <User className="clickPic" />
-      </div>
-    </div>
+   
     );
-  }
-}
-
-export default SearchBar;
+  };
+  
+  export default SearchBar;

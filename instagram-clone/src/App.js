@@ -1,32 +1,43 @@
 import React, { Component } from 'react';
 import './App.css';
-
-import dummyData from './dummyData.js';
-
-
-import SearchBar from './instagram/components/searchBar/SearchBar.js';
-
-import PostContainer from './instagram/components/postContainer/PostContainer.js';
-
-
+import dummyData from './dummyData';
+import PostContainer from './instagram/components/PostContainer/PostContainer';
+import SearchBar from './instagram/components/SearchBar/SearchBar';
 
 class App extends Component {
-  constructor(props) {
-    super(props);
+  constructor() {
+    super();
     this.state = {
-      users: []
-    }
+      posts: [],
+      filteredPosts: []
+    };
   }
-
-  componentDidMount() {
-    this.setState({ users: dummyData })
+  componentDidMount () {
+    this.setState({posts: dummyData});
   }
+  searchPostsHandler = e => {
+    const posts = this.state.posts.filter(p => {
+      if (p.username.includes(e.target.value)) {
+        return p;
+      }
+    });
+    this.setState({ filteredPosts: posts });
+  };
 
   render() {
     return (
       <div className="App">
-        <SearchBar />
-        <PostContainer users = {this.state.users}/>
+       <SearchBar
+          searchTerm={this.state.searchTerm}
+          searchPosts={this.searchPostsHandler}
+        />
+        <PostContainer
+          posts={
+            this.state.filteredPosts.length > 0
+              ? this.state.filteredPosts
+              : this.state.posts
+          }
+        />
       </div>
     );
   }
