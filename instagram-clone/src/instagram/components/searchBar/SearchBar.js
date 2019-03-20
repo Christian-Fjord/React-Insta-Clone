@@ -16,14 +16,17 @@ const SearchBar = props => {
        
 
     
-        <div className="social">
+        <div className="social instaClone">
+
         <Instagram className="instagram" />
         
-        
         </div>
+
+        <p className="instaText"> InstaClone </p>
+        
         <div>
 
-          
+         
 
         <input type="text" placeholder="Search" onKeyDown={props.searchPosts} />
         </div>
