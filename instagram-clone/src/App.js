@@ -1,33 +1,47 @@
 import React, { Component } from 'react';
 import './App.css';
-import dummyData from './dummyData';
-import PostContainer from './instagram/components/PostContainer/PostContainer';
-import SearchBar from './instagram/components/SearchBar/SearchBar';
+// import dummyData from './dummyData';
+// import PostContainer from './instagram/components/PostContainer/PostContainer';
+// import SearchBar from './instagram/components/SearchBar/SearchBar';
+import PostsPage from './instagram/components/PostContainer/PostsPage';
+
+import withAuthentication from './instagram/components/Authentication/WithAuthentication';
+
+import Login from './instagram/components/Login/Login'
+
+
+const ComponentFromWithAuthentication = withAuthentication(PostsPage);
+
+const RenderPage = ComponentFromWithAuthentication(Login);
+
 
 class App extends Component {
   constructor() {
     super();
     this.state = {
-      posts: [],
-      filteredPosts: []
+      // posts: [],
+      // filteredPosts: []
     };
   }
-  componentDidMount () {
+  /** componentDidMount () {
     this.setState({posts: dummyData});
   }
   searchPostsHandler = e => {
     const posts = this.state.posts.filter(p => {
       if (p.username.includes(e.target.value)) {
         return p;
+      } else {
+        return null;
       }
-    });
+    }); 
     this.setState({ filteredPosts: posts });
   };
+  */
 
   render() {
     return (
       <div className="App">
-       <SearchBar
+        {/* <SearchBar
           searchTerm={this.state.searchTerm}
           searchPosts={this.searchPostsHandler}
         />
@@ -38,6 +52,10 @@ class App extends Component {
               : this.state.posts
           }
         />
+       */}
+        <RenderPage />
+
+        
       </div>
     );
   }

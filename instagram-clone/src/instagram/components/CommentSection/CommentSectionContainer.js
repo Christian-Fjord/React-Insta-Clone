@@ -16,7 +16,7 @@ class CommentSectionContainer extends React.Component {
     if (localStorage.getItem(id)) {
       
       this.setState({
-        comments: JSON.parse(localStorage.getItem(this.props.postId))
+        comments: JSON.parse(localStorage.getItem("username"))
       });
     } else {
       this.setComments();
